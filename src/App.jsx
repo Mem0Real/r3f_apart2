@@ -8,6 +8,7 @@ import {
 	GizmoHelper,
 	GizmoViewcube,
 	GizmoViewport,
+	FirstPersonControls,
 } from "@react-three/drei";
 
 function AnimatedBox() {
@@ -38,6 +39,8 @@ function App() {
 				<GizmoHelper alignment="top-right" margin={[80, 80]}>
 					<GizmoViewport />
 				</GizmoHelper>
+				{/* Controls */}
+				<FirstPersonControls movementSpeed={3} activeLook={false} />
 				<OrbitControls />
 				<AnimatedBox />
 				{/* Light */}
