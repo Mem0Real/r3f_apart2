@@ -1,6 +1,14 @@
-import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
 import "./index.css";
+
+import { useRef } from "react";
+
+import { Canvas, useFrame } from "@react-three/fiber";
+import {
+	OrbitControls,
+	GizmoHelper,
+	GizmoViewcube,
+	GizmoViewport,
+} from "@react-three/drei";
 
 function AnimatedBox() {
 	const boxRef = useRef(null);
@@ -23,7 +31,16 @@ function App() {
 	return (
 		<div id="canvas-container">
 			<Canvas>
+				{/* Helpers */}
+				<axesHelper args={[5]} /> {/* for axes */}
+				<gridHelper args={[20, 20, 0xff22aa, 0x55ccff]} /> {/*for grid */}
+				{/* Gizmo wrapper */}
+				<GizmoHelper alignment="top-right" margin={[80, 80]}>
+					<GizmoViewport />
+				</GizmoHelper>
+				<OrbitControls />
 				<AnimatedBox />
+				{/* Light */}
 				<directionalLight position={[4, 2, 3]} />
 			</Canvas>
 		</div>
