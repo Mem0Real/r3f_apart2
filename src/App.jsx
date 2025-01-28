@@ -20,7 +20,7 @@ function AnimatedBox() {
 	});
 
 	return (
-		<mesh ref={boxRef}>
+		<mesh ref={boxRef} scale={0.7}>
 			<boxGeometry args={[2, 2, 2]} />
 			<meshStandardMaterial color={0x00bfff} />
 		</mesh>
@@ -30,9 +30,9 @@ function AnimatedBox() {
 function App() {
 	return (
 		<div id="canvas-container">
-			<Canvas>
+			<Canvas camera={{ position: [4, 4, 10] }}>
 				{/* Helpers */}
-				<axesHelper args={[5]} /> {/* for axes */}
+				{/* <axesHelper args={[2]} /> */}
 				<gridHelper args={[20, 20, 0xff22aa, 0x55ccff]} /> {/*for grid */}
 				{/* Gizmo wrapper */}
 				<GizmoHelper alignment="top-right" margin={[80, 80]}>
